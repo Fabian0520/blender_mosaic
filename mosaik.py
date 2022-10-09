@@ -92,10 +92,10 @@ def split_rectangle(rectangle, direction, divisions):
     return new_rectangles
 
 
-def points_in_rectangle(rect,points):
+def points_in_rectangle(rect, points, threshold):
     points_x = points[points['x'].between(rect[0], rect[0]+rect[3])]
     points_y = points_x[points_x['y'].between(rect[1], rect[1]+rect[2])]
-    if points_y.shape[0] > 5:
+    if points_y.shape[0] > threshold:
         return True
     else:
         return False
@@ -121,12 +121,13 @@ rect_list = [rect]
 # choices for split_rectangle
 choices = [1, 2, 3]
 weights = (0.0, 0.2, 0.8)
+edge_threshold  = 5
 
 for i in range(12):
     new_rect_list = []
     for rectangle in rect_list:
         if rect[2] > 4 and rect[3] > 4:
-            if points_in_rectangle(rectangle, edge_coordinates):
+            if points_in_rectangle(rectangle, edge_coordinates, edge_threshold):
                 number_of_divisions = random.choices(choices, cum_weights=weights, k=1)[0]
                 new_rect_list.extend(split_rectangle(rectangle,i%2,number_of_divisions))
             else:

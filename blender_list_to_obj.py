@@ -3,9 +3,12 @@ import os
 import colorsys
 import dill
 
+
 def rectToObjk(rect):
     hScale = 1
-    r, g, b = rect.avColor
+    r = rect.r
+    g = rect.g
+    b = rect.b
     h, s, v = colorsys.rgb_to_hsv(r, g, b)
     gray = 0.299*r + 0.587*g +0.114*b
     gray_2 = 0.2126*r + 0.7152*g + 0.0722*b
@@ -48,7 +51,7 @@ def rectToObjk(rect):
 
     bpy.context.active_object.select_set(state=False)
     
-dill_file = os.path.join("D:", "blender_test", "Gauguin.dill")
+dill_file = os.path.join("D:", "blender_test", "flowers.pkl")
     
 with open(dill_file,'rb') as file:
     data = dill.load(file)
