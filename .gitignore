@@ -1,0 +1,6 @@
+venv/
+*.jpg
+*.webp
+*.blend
+*.blend1
+*.pkl
