@@ -15,14 +15,14 @@ def rectToObjk(rect):
     height = gray_2 * hScale
     z_min = -0.2
     z_max = (height/2)
-    verts = [(rect.x_min/100, rect.y_min/100, z_min),   # 0
-             (rect.x_max/100, rect.y_min/100, z_min),   # 1
-             (rect.x_max/100, rect.y_max/100, z_min),   # 2
-             (rect.x_min/100, rect.y_max/100, z_min),   # 3
-             (rect.x_min/100, rect.y_min/100, z_max),   # 4
-             (rect.x_max/100, rect.y_min/100, z_max),   # 5
-             (rect.x_max/100, rect.y_max/100, z_max),   # 6
-             (rect.x_min/100, rect.y_max/100, z_max)]   # 7
+    verts = [(rect.x_min/100, -rect.y_min/100, z_min),   # 0
+             (rect.x_max/100, -rect.y_min/100, z_min),   # 1
+             (rect.x_max/100, -rect.y_max/100, z_min),   # 2
+             (rect.x_min/100, -rect.y_max/100, z_min),   # 3
+             (rect.x_min/100, -rect.y_min/100, z_max),   # 4
+             (rect.x_max/100, -rect.y_min/100, z_max),   # 5
+             (rect.x_max/100, -rect.y_max/100, z_max),   # 6
+             (rect.x_min/100, -rect.y_max/100, z_max)]   # 7
     faces = [(0, 1, 2, 3),
              (4, 7, 6, 5),
              (0, 4, 5, 1),
